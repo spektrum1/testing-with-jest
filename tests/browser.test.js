@@ -32,3 +32,16 @@ describe('Clicking "Pusha till stacken"', () => {
 		await alert.accept();
 	});
 });
+
+test('stack string is updated properly when peeked', async () => {
+  let push = await driver.findElement(By.id('push'));
+  await push.click();
+  let alert = await driver.switchTo().alert();
+  await alert.sendKeys("Bananer");
+  await alert.accept();
+  let peek = await driver.findElement(By.id('peek'));
+  await peek.click();
+
+  let stack = await driver.findElement(By.id('top_of_stack')).getText();
+	expect(stack).toEqual("Banener");
+});
