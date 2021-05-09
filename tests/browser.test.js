@@ -43,5 +43,5 @@ test('stack string is updated properly when peeked', async () => {
   await peek.click();
 
   let stack = await driver.findElement(By.id('top_of_stack')).getText();
-	expect(stack).toEqual("Banener");
+	expect(stack).toEqual("Bananer");
 });
